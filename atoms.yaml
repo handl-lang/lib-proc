@@ -1,0 +1,17 @@
+# lib-proc atom spec (P-013/T-149) — process identity atoms.
+# The IDL: name = dispatch key, sig = handl signature (~> canonical),
+# impl = key into the Rust impl table (ops/process.rs).
+# Replaces the cap/op/handle decl triple in src/index.hnl (T-151).
+module: proc
+atoms:
+  - name: proc.argv
+    sig: "Unit ~> (List String)"
+    impl: proc_argv
+    total: true
+  - name: proc.exit
+    sig: "Int ~> a"
+    impl: proc_exit
+  - name: proc.pid
+    sig: "Unit ~> Int"
+    impl: proc_pid
+    total: true
