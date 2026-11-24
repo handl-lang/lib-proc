@@ -1,0 +1,27 @@
+--- proc -- process identity: own argv, exit code, pid.
+---
+--- Single source of truth for the `proc` module interface (P-012). The
+--- ops are host atoms implemented in `plugin-lib-stdlib`
+--- (`ops/process.rs`): `argv` reads the process argument vector the host
+--- was launched with, `exit` terminates the process, `pid` reports the
+--- process id. `lib-posix` stays strict POSIX.1 — argv/exit/pid are not
+--- POSIX functions, they are runtime/launch data, so they live here.
+---
+--- ## Capability declarations (ADR-0077 Phase 4)
+--- proc.argv -- own-process argument vector, argv[0] included.
+--- proc.exit -- terminate the process with the given exit code.
+--- proc.pid  -- own process id.
+
+cap "proc.argv"
+cap "proc.exit"
+cap "proc.pid"
+
+op "proc.argv" : Unit -> (List String)
+  guarantee: True
+op "proc.exit" : Int -> a
+op "proc.pid" : Unit -> Int
+  guarantee: True
+
+handle "proc.argv" with proc_argv
+handle "proc.exit" with proc_exit
+handle "proc.pid" with proc_pid

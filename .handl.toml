@@ -1,0 +1,3 @@
+[dependencies]
+# own package
+proc = { path = "src" }

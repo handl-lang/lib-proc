@@ -1,0 +1,10 @@
+-- lib-proc: modules this package provides (entry defaults to
+-- src/index.hnl; N modules resolve to src/<name>/index.hnl).
+{
+  modules: ["proc"],
+  name: "proc",
+  description: "Process identity contract — own argv, exit code, pid. Host-builtin atoms; contract only (backend: plugin-lib-stdlib ops/process.rs).",
+  license: "MIT",
+  keywords: ["proc", "process", "argv", "exit", "pid", "contract", "stdlib"],
+  homepage: "https://github.com/handl-lang/lib-proc",
+}
