@@ -16,10 +16,10 @@ cap "proc.argv"
 cap "proc.exit"
 cap "proc.pid"
 
-op "proc.argv" : Unit -> (List String)
+op "proc.argv" : Unit ~> (List String)
   guarantee: True
-op "proc.exit" : Int -> a
-op "proc.pid" : Unit -> Int
+op "proc.exit" : Int ~> a
+op "proc.pid" : Unit ~> Int
   guarantee: True
 
 handle "proc.argv" with proc_argv
