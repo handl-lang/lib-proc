@@ -12,16 +12,5 @@
 --- proc.exit -- terminate the process with the given exit code.
 --- proc.pid  -- own process id.
 
-cap "proc.argv"
-cap "proc.exit"
-cap "proc.pid"
 
-op "proc.argv" : Unit ~> (List String)
-  guarantee: True
-op "proc.exit" : Int ~> a
-op "proc.pid" : Unit ~> Int
-  guarantee: True
 
-handle "proc.argv" with proc_argv
-handle "proc.exit" with proc_exit
-handle "proc.pid" with proc_pid
