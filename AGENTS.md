@@ -8,8 +8,8 @@ Process identity **contract** for Handl — `argv`, `exit`, `pid`.
 | --- | --- |
 | `src/index.hnl` | the contract |
 | `src/index.test.hnl` | the .hnl test suite |
-| `atoms.yaml` | atom declarations |
-| `pkg.hnl`, `ci.sh`, `scripts/hnl-gate.sh` | manifest / bupha entry / gate |
+| `atoms.yaml` | atom spec (P-013/T-151) |
+| `pkg.hnl`, `scripts/hnl-gate.sh`, `workflows/gate.yaml` | manifest / gate / bupha campaign |
 
 ## Contract
 
@@ -26,7 +26,7 @@ Process identity **contract** for Handl — `argv`, `exit`, `pid`.
 ## Verification
 
 ```bash
-./ci.sh   # bupha entry → scripts/hnl-gate.sh
+HNL=~/.local/bin/hnl bash scripts/hnl-gate.sh   # gate; CI is the workflows/gate.yaml campaign
 ```
 
 ## License
