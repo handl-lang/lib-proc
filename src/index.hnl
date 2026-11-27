@@ -11,6 +11,3 @@
 --- proc.argv -- own-process argument vector, argv[0] included.
 --- proc.exit -- terminate the process with the given exit code.
 --- proc.pid  -- own process id.
-
-
-
